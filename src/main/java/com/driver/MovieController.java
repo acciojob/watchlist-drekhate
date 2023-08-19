@@ -31,38 +31,38 @@ public class MovieController {
         return new ResponseEntity<>("Pair added successfully!", HttpStatus.OK);
     }
 
-    @GetMapping("get-movie-by-name/{name}")
+    @GetMapping("/get-movie-by-name/{name}")
     public ResponseEntity<Movie> getMovieByName(@PathVariable("name") String movieName){
         Movie movie = movieService.getMovieByName(movieName);
         return new ResponseEntity<>(movie, HttpStatus.OK);
     }
 
 
-    @GetMapping("get-director-by-name/{name}")
+    @GetMapping("/get-director-by-name/{name}")
     public ResponseEntity<Director> getDirectorByName(@PathVariable("name") String directorName){
         Director director = movieService.getDirectorByName(directorName);
         return new ResponseEntity<>(director, HttpStatus.OK);
     }
 
-    @GetMapping("get-movies-by-director-name/{director}")
+    @GetMapping("/get-movies-by-director-name/{director}")
     public ResponseEntity<List<String>> getMoviesByDirectorName(@PathVariable("director") String directorName){
         List<String> ans = movieService.getMoviesByDirectorName(directorName);
         return new ResponseEntity<>(ans, HttpStatus.OK);
     }
 
-    @GetMapping("get-all-movies")
+    @GetMapping("/get-all-movies")
     public ResponseEntity<List<String>> findAllMovies(){
         List<String> ans = movieService.findAllMovies();
         return new ResponseEntity<>(ans, HttpStatus.OK);
     }
 
-    @DeleteMapping("delete-director-by-name")
+    @DeleteMapping("/delete-director-by-name")
     public ResponseEntity<String> deleteDirectorByName(@RequestParam("name") String directorname){
         movieService.deleteDirectorByName(directorname);
         return new ResponseEntity<>("Movies deleted successfully!", HttpStatus.OK);
     }
 
-    @DeleteMapping("delete-all-directors")
+    @DeleteMapping("/delete-all-directors")
     public ResponseEntity<String> deleteAllDirectors(){
         movieService.deleteAllDirectors();
         return new ResponseEntity<>("Movies deleted successfully!", HttpStatus.OK);
