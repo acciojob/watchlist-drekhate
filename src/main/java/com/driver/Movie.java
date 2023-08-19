@@ -5,7 +5,7 @@ public class Movie {
     private int durationInMinutes;
     private double imdbRating;
 
-    //-------------- Constructor ---------------
+    //-------------- Constructor --------------
     public Movie() {
     }
 
