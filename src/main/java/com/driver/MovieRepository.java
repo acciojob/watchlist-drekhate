@@ -9,9 +9,9 @@ import java.util.Map;
 
 @Repository
 public class MovieRepository {
-    private List<Movie> movieDb = new ArrayList<>();
-    private List<Director> directorDb = new ArrayList<>();
-    private List<Pair> movie2Director = new ArrayList<>();
+    private final List<Movie> movieDb = new ArrayList<>();
+    private final List<Director> directorDb = new ArrayList<>();
+    private final List<Pair> movie2Director = new ArrayList<>();
 
     public void addMovie(Movie movie) {
         try {
