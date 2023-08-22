@@ -63,7 +63,7 @@ public class MovieRepository {
     public List<String> getMoviesByDirectorName(String directorName) {
         List<String> res = new ArrayList<>();
         try {
-            for (var pair : movie2Director) {
+            for (Pair pair: movie2Director) {
                 if (pair.getDirector().getName().equals(directorName)) {
                     res.add(pair.getMovie().getName());
                 }
@@ -78,7 +78,7 @@ public class MovieRepository {
     public List<String> findAllMovies() {
         List<String> res = new ArrayList<>();
         try {
-            for (var movie : movieDb) {
+            for (Movie movie: movieDb) {
                 res.add(movie.getName());
             }
         } catch (Exception e) {
@@ -91,7 +91,7 @@ public class MovieRepository {
         Director director = getDirectorByName(directorName);
         directorDb.remove(director);
         try {
-            for (var pair : movie2Director) {
+            for (Pair pair: movie2Director) {
                 if (pair.getDirector().equals(director)) {
                     movie2Director.remove(pair);
                     movieDb.remove(pair.getMovie());
@@ -105,7 +105,7 @@ public class MovieRepository {
     public void deleteAllDirectors() {
         List<Movie> movieToBeDeleted = new ArrayList<>();
         try {
-            for (var pair : movie2Director) {
+            for (Pair pair: movie2Director) {
                 movieToBeDeleted.add(pair.getMovie());
             }
             movieDb.removeAll(movieToBeDeleted);
@@ -117,7 +117,7 @@ public class MovieRepository {
 
     }
 
-    private class Pair {
+    private static class Pair {
         private Movie movie;
         private Director director;
 

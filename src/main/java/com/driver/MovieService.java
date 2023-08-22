@@ -26,8 +26,11 @@ public class MovieService {
     public String addMovieDirectorPair(String movieName, String directorName) {
         Movie movie = getMovieByName(movieName);
         Director director = getDirectorByName(directorName);
-        if (movie != null && director != null) movieRepository.addMovieDirectorPair(movie, director);
-        return "movie and director paired successfully";
+        if (movie != null && director != null) {
+            movieRepository.addMovieDirectorPair(movie, director);
+            return "movie and director paired successfully";
+        }
+        return "movie and director paired not successfully";
     }
 
     public Movie getMovieByName(String name) {
